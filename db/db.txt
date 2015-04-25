@@ -1,0 +1,52 @@
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` smallint(6) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `description` text NOT NULL,
+  `position` smallint(6) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `pm` (
+  `id` bigint(20) NOT NULL,
+  `id2` int(11) NOT NULL,
+  `title` varchar(256) NOT NULL,
+  `user1` bigint(20) NOT NULL,
+  `user2` bigint(20) NOT NULL,
+  `message` text NOT NULL,
+  `timestamp` int(10) NOT NULL,
+  `user1read` varchar(3) NOT NULL,
+  `user2read` varchar(3) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `replies` (
+  `parent` smallint(6) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id2` int(11) NOT NULL,
+  `title` varchar(256) NOT NULL,
+  `message` longtext NOT NULL,
+  `authorid` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `timestamp2` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `topics` (
+  `parent` smallint(6) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id2` int(11) NOT NULL,
+  `title` varchar(256) NOT NULL,
+  `message` longtext NOT NULL,
+  `authorid` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `timestamp2` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `avatar` text NOT NULL,
+  `signup_date` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `avatar`, `signup_date`) VALUES
+(1, 'himanshu', 'c016f85c06c121220804903db934442950ee1c74', 'hk2904@outlook.com', '', 1427273317);
